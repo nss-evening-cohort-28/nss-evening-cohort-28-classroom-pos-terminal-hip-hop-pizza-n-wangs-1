@@ -1,0 +1,34 @@
+{
+  "-MiBsfuTafbEQ7eAULxV": {
+    "image": "https://www.allrecipes.com/thmb/0xH8n2D4cC97t7mcC7eT2SDZ0aE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6776_Pizza-Dough_ddmfs_2x1_1725-fdaa76496da045b3bdaadcec6d4c5398.jpg",
+    "firebaseKey": "-MiBsfuTafbEQ7eAULxV",
+    "name": "Pepperoni Pizza",
+    "price": "$9.99",
+    "onSale": true,
+    "uid": ""
+  },
+  "-MiBt86VzkC-EGmJnxjm": {
+    "image": "https://www.budgetbytes.com/wp-content/uploads/2024/01/buffalo-wings-overhead-horizontal-WR-scaled.jpg",
+    "firebaseKey": "-MiBt86VzkC-EGmJnxjm",
+    "name": "Buffalo Wings",
+    "price": "$8.99",
+    "onSale": false,
+    "uid": ""
+  },
+  "-MiBtwf1BwN9pGavQeR3": {
+    "image": "https://thestayathomechef.com/wp-content/uploads/2023/07/Easy-Cheese-Pizza_Square-1.jpg",
+    "firebaseKey": "-MiBtwf1BwN9pGavQeR3",
+    "name": "Cheese Pizza",
+    "price": "$9.99",
+    "onSale": false,
+    "uid": ""
+  },
+  "-MiBuOfHv9NCKB_cneij": {
+    "image": "https://biteswithbri.com/wp-content/uploads/2023/10/StickyBBQWings03.jpg",
+    "firebaseKey": "-MiBuOfHv9NCKB_cneij",
+    "name": "BBQ Wings",
+    "price": "$8.99",
+    "onSale": true,
+    "uid": ""
+  }
+}

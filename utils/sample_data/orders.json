@@ -1,0 +1,29 @@
+{
+  "-MiBsBKGWFEU-yluJkL-": {
+    "name": "Dracula",
+    "firebaseKey":   "-MiBsBKGWFEU-yluJkL-",
+    "status": "Open",
+    "cxPhone": "(123)123-1234",
+    "orderType": "In-Person",
+    "itemIds": "-MiBt86VzkC-EGmJnxjm",
+    "uid": ""
+  },
+  "-MiBsknNSQ6aBG1-2lQS": {
+    "name": "Jason",
+    "firebaseKey":   "-MiBsknNSQ6aBG1-2lQS",
+    "status": "Closed",
+    "cxPhone": "(123)345-6789",
+    "orderType": "Phone",
+    "author_id": "-MiBsfuTafbEQ7eAULxV",
+    "uid": ""
+  },
+  "-MiBuCve4-r_H-RLUOh2": {
+    "name": "Freddie",
+    "firebaseKey":   "-MiBuCve4-r_H-RLUOh2",
+    "status": "Open",
+    "cxPhone": "(543)321-4321",
+    "orderType": "In-Person",
+    "itemIds": "-MiBuOfHv9NCKB_cneij",
+    "uid": ""
+  }
+}
