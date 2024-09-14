@@ -32,8 +32,7 @@ const navBar = () => {
 
          <li>
           <span class="navbar-text">
-            <button id="navbarLogout" class="btn btn-danger">SIGNOUT</button>
-          </span>
+<button id="logout-button" class="btn btn-danger">SIGNOUT</button>          </span>
           </li>
           </ul>
           
