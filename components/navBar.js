@@ -32,7 +32,7 @@ const navBar = () => {
 
          <li>
           <span class="navbar-text">
-            <button id="navbarLogout" class="btn btn-danger">SIGNOUT</button>
+            <div id="logout-button"></div>
           </span>
           </li>
           </ul>
