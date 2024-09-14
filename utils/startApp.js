@@ -2,12 +2,14 @@ import firebase from 'firebase/app'; // Assuming you're using Firebase for authe
 import logoutButton from '../components/logoutButton';
 import navBar from '../components/navBar';
 import loginButton from '../components/loginButton';
+import domBuilder from '../components/shared/domBuilder';
 
 const startApp = () => {
   // Listen for changes in authentication state
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User is logged in, show navbar and logout button
+      domBuilder();
       navBar();
       logoutButton();
 
