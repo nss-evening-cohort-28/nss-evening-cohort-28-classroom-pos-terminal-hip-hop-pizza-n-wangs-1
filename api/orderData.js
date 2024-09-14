@@ -72,7 +72,7 @@ const showOrders = (array) => {
     domString += `
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-        <h1 class="card-title">${item.name}</h1>
+        <h1 class="card-title">${item.order_name}</h1>
         <h1 class="card-subtitle mb-2 text-muted">Order Status: ${item.order_status}</h1>
         <h1 class="card-subtitle mb-2 text-muted">Customer Phone Number: ${item.phone_number}</h1>
         <h1 class="card-subtitle mb-2 text-muted">Customer Email Address: ${item.email}</h1>
