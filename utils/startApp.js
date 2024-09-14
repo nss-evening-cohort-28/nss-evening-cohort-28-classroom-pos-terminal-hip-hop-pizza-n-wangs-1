@@ -1,28 +1,19 @@
-import firebase from 'firebase/app'; // Assuming you're using Firebase for authentication
 import logoutButton from '../components/logoutButton';
-import navBar from '../components/navBar';
-import loginButton from '../components/loginButton';
 import domBuilder from '../components/shared/domBuilder';
+import navBar from '../components/navBar';
+// import domEvents from '../events/domEvents';
+// import formEvents from '../events/formEvents';
+// import { showBooks } from '../pages/books';
+// import { getBooks } from '../api/bookData';
 
-const startApp = () => {
-  // Listen for changes in authentication state
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // User is logged in, show navbar and logout button
-      domBuilder();
-      navBar();
-      logoutButton();
+const startApp = (user) => {
+  domBuilder(user); // BUILD THE DOM
+  // domEvents(user); // ADD THE EVENT LISTENTERS TO THE DOM
+  // formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
+  navBar(user); // DYNAMICALLY ADD THE NAV
+  logoutButton(user); // ADD THE LOGOUT BUTTON COMPONENT
 
-      // Clear the login button if it's present
-      document.querySelector('#login-form-container').innerHTML = '';
-    } else {
-      // User is logged out, only show the login button
-      loginButton();
-
-      // Clear the navbar if it's present
-      document.querySelector('#navigation').innerHTML = '';
-    }
-  });
+  // TODO: Put HOME page on DOM
 };
 
 export default startApp;
