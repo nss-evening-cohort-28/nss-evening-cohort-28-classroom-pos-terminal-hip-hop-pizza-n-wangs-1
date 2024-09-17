@@ -42,8 +42,8 @@ const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// UPDATE ITEM
-const updateItem = (payload) => new Promise((resolve, reject) => {
+// UPDATE ITEMS
+const updateItems = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/items/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
@@ -57,5 +57,5 @@ const updateItem = (payload) => new Promise((resolve, reject) => {
 });
 
 export {
-  getAllItems, createItem, deleteItem, updateItem
+  getAllItems, createItem, deleteItem, updateItems
 };
