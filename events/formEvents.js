@@ -3,7 +3,7 @@ import {
 } from '../api/orderData';
 
 const formEvents = () => {
-  document.querySelector('#test').addEventListener('submit', (e) => {
+  document.querySelector('#app').addEventListener('submit', (e) => {
     e.stopImmediatePropagation();
     e.preventDefault();
     // CLICK EVENT FOR SUBMITTING FORM FOR ADDING An Order
@@ -13,7 +13,7 @@ const formEvents = () => {
         phone_number: document.querySelector('#customerPhone').value,
         email: document.querySelector('#customerEmail').value,
         order_type: document.querySelector('#orderType').value,
-        order_staus: 'Open',
+        order_status: 'Open',
         order_items: [],
       };
 
