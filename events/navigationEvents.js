@@ -1,4 +1,5 @@
-import { getOrders, showOrders } from '../api/orderData';
+import { getOrders } from '../api/orderData';
+import showOrders from '../pages/showOrders';
 import newOrderForm from '../forms/newOrderForm';
 
 const navigationEvents = () => {
