@@ -10,6 +10,10 @@ const navigationEvents = () => {
   document.querySelector('#create-orders').addEventListener('click', () => {
     newOrderForm();
   });
+
+  document.querySelector('#navbar-logo').addEventListener('click', () => {
+    getOrders().then((orders) => showOrders(orders));
+  });
 };
 
 export default navigationEvents;
