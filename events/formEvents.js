@@ -1,7 +1,8 @@
 import firebase from 'firebase';
 import { updateItems, getAllItems } from '../api/itemsData';
+import showOrders from '../pages/showOrders';
 import {
-  createOrders, updateOrders, getOrders, showOrders
+  createOrders, updateOrders, getOrders,
 } from '../api/orderData';
 import { showItems } from '../pages/createEditItem';
 
