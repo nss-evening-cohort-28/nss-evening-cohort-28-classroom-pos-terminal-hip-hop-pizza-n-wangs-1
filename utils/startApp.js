@@ -2,6 +2,7 @@ import logoutButton from '../components/logoutButton';
 import domBuilder from '../components/shared/domBuilder';
 import navBar from '../components/navBar';
 import navigationEvents from '../events/navigationEvents';
+import welcomeScreen from '../pages/homePage';
 // import domEvents from '../events/domEvents';
 // import formEvents from '../events/formEvents';
 // import { showBooks } from '../pages/books';
@@ -11,6 +12,7 @@ const startApp = (user) => {
   domBuilder(user); // BUILD THE DOM
   // domEvents(user); // ADD THE EVENT LISTENTERS TO THE DOM
   // formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
+  welcomeScreen(user.displayName);
   navBar(user); // DYNAMICALLY ADD THE NAV
   logoutButton(user); // ADD THE LOGOUT BUTTON COMPONENT
   navigationEvents();
