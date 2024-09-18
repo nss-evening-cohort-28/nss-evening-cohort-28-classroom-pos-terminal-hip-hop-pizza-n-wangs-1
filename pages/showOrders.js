@@ -20,7 +20,7 @@ const showOrders = (array) => {
       </div>
     </div>`;
   });
-  renderToDom('#app', domString);
+  renderToDom('#store', domString);
 };
 
 export default showOrders;
