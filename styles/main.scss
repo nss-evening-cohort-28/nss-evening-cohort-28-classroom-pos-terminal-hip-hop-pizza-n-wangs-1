@@ -3,8 +3,84 @@
 
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: #2B2B2B;
+  color: white;
   text-align: center;
   margin-top: 100px;
+}
+
+#landing-image{
+  width: 335px;
+  height: 404px;
+}
+
+#userGreeting{
+  font-size: 2rem;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+  gap: 3rem;
+}
+
+.btn-primary {
+  padding: 10px 100px;
+  border: none;
+}
+
+#viewOrder {
+  background-color: #28A745;
+}
+
+#addItemBtn {
+  background-color: #28A745;
+}
+
+#goToPaymentsBtn {
+  background-color: #007BFF;
+}
+
+#createOrder {
+  background-color: #17A2B8;
+}
+
+#viewRevenue {
+  background-color: #FFC107;
+  color: #121212;
+}
+
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#itemCard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  border-radius: 10px;
+}
+
+.itemCard-body {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.card {
+  margin: 22px 7px;
+}
+
+.itemCard {
+  background-color: white;
+  color: #121212;
+  width: 80%;
+  text-align: start;
+  border-radius: 8px;
 }
