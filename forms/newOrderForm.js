@@ -1,5 +1,5 @@
 import clearDom from '../utils/clearDom';
-import renderToDOM from '../utils/renderToDom';
+import renderToDom from '../utils/renderToDom';
 
 const newOrderForm = (obj = {}) => {
   clearDom();
@@ -31,7 +31,7 @@ const newOrderForm = (obj = {}) => {
       <button type="submit" id="form-submit" class="btn btn-primary mt-3">Create/Edit Order</button>
     </form>`;
 
-  renderToDOM('#app', domString);
+  renderToDom('#store', domString);
 };
 
 export default newOrderForm;

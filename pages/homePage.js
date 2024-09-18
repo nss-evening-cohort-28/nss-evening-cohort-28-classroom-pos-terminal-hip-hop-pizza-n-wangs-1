@@ -1,5 +1,5 @@
 import clearDom from '../utils/clearDom';
-import renderToDOM from '../utils/renderToDom';
+import renderToDom from '../utils/renderToDom';
 
 const welcomeScreen = (userName = {}) => {
   clearDom();
@@ -14,7 +14,7 @@ const welcomeScreen = (userName = {}) => {
       </div>
     </div>  `;
 
-  renderToDOM('#view', domString);
+  renderToDom('#view', domString);
 };
 
 export default welcomeScreen;
