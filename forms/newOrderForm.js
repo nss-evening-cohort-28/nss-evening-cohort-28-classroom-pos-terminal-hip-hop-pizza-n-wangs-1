@@ -12,12 +12,12 @@ const newOrderForm = (obj = {}) => {
 
       <div class="form-group">
         <label for="customerPhone">Customer Phone</label>
-        <textarea class="form-control" id="customerPhone" style="height: 100px">${obj.phone_number || ''}</textarea>
+        <input type="text" class="form-control" id="customerPhone" aria-describedby="customerPhone" value="${obj.phone_number || ''}" required>
       </div>
 
       <div class="form-group">
         <label for="customerEmail">Customer Email</label>
-        <textarea class="form-control" id="customerEmail" style="height: 100px">${obj.email || ''}</textarea>
+        <input type="text" class="form-control" id="customerEmail" aria-describedby="customerEmail" value="${obj.email || ''}" required>
       </div>
 
         <label for="orderType">Order type</label>
