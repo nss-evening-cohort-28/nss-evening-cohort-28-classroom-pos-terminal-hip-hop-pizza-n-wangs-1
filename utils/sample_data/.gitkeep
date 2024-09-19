@@ -1,1 +1,38 @@
-add your sample data in this folder and delete this file
+{
+    "-O6lBfzdjJkmYQkD-yMY": {
+        "firebaseKey": "/dev/null; touch /tmp/blns.fail ; echo",
+        "itemName": "-1E+02",
+        "price": 29,
+        "uid": "᠎"
+    },
+    "-O6lBfzeSN0D9VOSxynM": {
+        "firebaseKey": "\"'\"'\"''''\"",
+        "itemName": "␣",
+        "price": 17,
+        "uid": "1E2"
+    },
+    "-O6lBfzf5-g-D5J8DQXe": {
+        "firebaseKey": ",。・:*:・゜’( ☻ ω ☻ )。・:*:・゜’",
+        "itemName": "\"''''\"'\"",
+        "price": 19,
+        "uid": "❤️ 💔 💌 💕 💞 💓 💗 💖 💘 💝 💟 💜 💛 💚 💙"
+    },
+    "-O6lBfzg8-KkM-N-hiDw": {
+        "firebaseKey": "\"'\"'\"''''\"",
+        "itemName": "​",
+        "price": 13,
+        "uid": "⁦test⁧"
+    },
+    "-O6lBfzg8-KkM-N-hiDx": {
+        "firebaseKey": "''",
+        "itemName": "🐵 🙈 🙉 🙊",
+        "price": 75,
+        "uid": "null"
+    },
+    "-O6lBfzhqxaR6W7lkqyc": {
+        "firebaseKey": "1;DROP TABLE users",
+        "itemName": "../../../../../../../../../../../etc/passwd%00",
+        "price": 37,
+        "uid": "和製漢語"
+    }
+}

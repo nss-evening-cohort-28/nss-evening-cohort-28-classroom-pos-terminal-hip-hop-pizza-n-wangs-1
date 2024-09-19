@@ -8,6 +8,6 @@ const signIn = () => {
 
 const signOut = () => {
   firebase.auth().signOut();
+  window.location.reload();
 };
-
 export { signIn, signOut };
