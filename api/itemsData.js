@@ -3,8 +3,8 @@ import client from '../utils/client';
 const endpoint = client.databaseURL;
 
 // GET ALL ITEMS
-const getAllItems = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/items.json?orderBy="uid"&equalTo="${uid}"`, {
+const getAllItems = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/items.json"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
