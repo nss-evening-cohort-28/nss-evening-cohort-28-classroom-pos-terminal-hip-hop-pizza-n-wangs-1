@@ -11,12 +11,11 @@ import formEvents from '../events/formEvents';
 const startApp = (user) => {
   domBuilder(user); // BUILD THE DOM
   domEvents(user); // ADD THE EVENT LISTENTERS TO THE DOM
-  // formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
   formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
   navBar(user); // DYNAMICALLY ADD THE NAV
   welcomeScreen(user.displayName);
   logoutButton(user); // ADD THE LOGOUT BUTTON COMPONENT
-  navigationEvents();
+  navigationEvents(user);
   // TODO: Put HOME page on DOM
 };
 
