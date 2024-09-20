@@ -7,7 +7,7 @@ const showOrders = (array) => {
   let domString = '';
   array.forEach((item) => {
     domString += `
-    <div class="card" style="width: 18rem;">
+    <div class="card col gx-3" style="width: 18rem; height: auto;">
       <div class="card-body">
         <h1 class="card-title">${item.order_name}</h1>
         <h1 class="card-subtitle mb-2 text-muted">Order Status: ${item.order_status}</h1>
