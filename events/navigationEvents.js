@@ -1,8 +1,9 @@
 import { getOrders } from '../api/orderData';
 import showOrders from '../pages/showOrders';
 import newOrderForm from '../forms/newOrderForm';
+import welcomeScreen from '../pages/homePage';
 
-const navigationEvents = () => {
+const navigationEvents = (user) => {
   document.querySelector('#view-orders').addEventListener('click', () => {
     getOrders().then((Orders) => showOrders(Orders));
   });
@@ -12,7 +13,7 @@ const navigationEvents = () => {
   });
 
   document.querySelector('#navbar-logo').addEventListener('click', () => {
-    getOrders().then((orders) => showOrders(orders));
+    welcomeScreen(user.displayName);
   });
 };
 

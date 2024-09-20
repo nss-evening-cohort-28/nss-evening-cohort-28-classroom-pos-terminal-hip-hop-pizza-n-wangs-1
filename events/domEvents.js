@@ -7,7 +7,14 @@ import { viewOrder, getOrderDetails } from '../components/orderDetails';
 import showOrders from '../pages/showOrders';
 
 const domEvents = () => {
-  document.querySelector('#app').addEventListener('click', (e) => {
+  document.querySelector('#main-container').addEventListener('click', (e) => {
+    // Buttons for homepage
+    if (e.target.id.includes('view-orders-btn')) {
+      getOrders().then(showOrders);
+    }
+    if (e.target.id.includes('create-orders-btn')) {
+      newOrderForm();
+    }
     // View Order
     if (e.target.id.includes('view-Order-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
