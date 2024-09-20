@@ -75,6 +75,73 @@ const updateOrders = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// FILTER BY CASH ORDERS
+const cashOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders.json?orderBy="order_type"&equalTo="cash"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+// FILTER BY CREDIT ORDERS
+const creditOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders.json?orderBy="order_type"&equalTo="credit`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+// FILTER BY MOBILE ORDERS
+const mobileOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders.json?orderBy="order_type"&equalTo="mobile"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+// FILTER BY PHONE ORDERS
+const phoneOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders.json?orderBy="order_type"&equalTo="phone"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+// FILTER BY IN-PERSON ORDERS
+const inPersonOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders.json?orderBy="order_type"&equalTo="In-Person"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 export {
-  getOrders, createOrders, deleteOrders, updateOrders, getSingleOrder
+  getOrders, createOrders, deleteOrders, updateOrders, getSingleOrder, cashOrders,
+  creditOrders, mobileOrders, phoneOrders,
+  inPersonOrders
 };
