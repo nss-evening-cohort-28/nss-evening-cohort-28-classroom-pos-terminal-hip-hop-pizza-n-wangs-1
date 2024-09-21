@@ -4,11 +4,13 @@ import { getSingleOrder } from '../api/orderData';
 import { deleteItem, getSingleItem, getItemsByOrderId } from '../api/itemsData';
 import addItemForm from '../forms/createEditItemsForm'; // Import the form for creating/editing items
 
+// Function to display "No Items Available" message
 const emptyItems = () => {
   const domString = '<h1>No Items Available</h1>';
   renderToDOM('#store', domString);
 };
 
+// Function to display items and calculate total price
 const showItems = (items) => {
   clearDom();
 
@@ -34,7 +36,6 @@ const showItems = (items) => {
           <h5 class="card-title">${item.name}</h5>
           <p class="card-text">Price: $${item.price}</p>
 
-
           <ul class="list-group">
             <li class="list-group-item">
               <a href="#" id="editItem--${item.firebaseKey}" class="text-decoration-none">Edit</a> |
@@ -42,9 +43,6 @@ const showItems = (items) => {
             </li>
           </ul>
         </div>
-        <button id="addItem-btn--${item.firebaseKey}" class="btn btn-success" style="margin: 10px; padding: 15px 30px;">Add Item</button>
-        <button id="goToPayment-btn--${item.firebaseKey}" class="btn btn-primary" style="margin: 10px; padding: 15px 30px;">Go To Payment</button>
-
       </div>
     `;
   });
@@ -81,8 +79,7 @@ const showItems = (items) => {
   });
 };
 
-export { viewOrder, getOrderDetails };// test
-// get order details
+// Function to get order details
 const getOrderDetails = async (firebaseKey) => {
   const orderObject = await getSingleOrder(firebaseKey);
   console.warn('getOrderDetails: Full order object:', JSON.stringify(orderObject, null, 2)); // Log the order object
@@ -99,7 +96,7 @@ const getOrderDetails = async (firebaseKey) => {
   return { ...orderObject, items }; // Return both the order and the items
 };
 
-// view an order and its items
+// Function to view an order and its items
 const viewOrder = (items) => {
   clearDom();
 
@@ -111,9 +108,9 @@ const viewOrder = (items) => {
     return;
   }
 
-  showItems(itemArray); // display the order's items
+  showItems(itemArray); // Display the order's items
 };
 
 export {
-  viewOrder, getOrderDetails, emptyItems, showItems
+  getOrderDetails, emptyItems, showItems, viewOrder
 };
