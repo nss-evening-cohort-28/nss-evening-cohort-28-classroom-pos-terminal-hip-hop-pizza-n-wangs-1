@@ -2,9 +2,37 @@ import client from '../utils/client';
 
 const endpoint = client.databaseURL;
 
+const getItemsByOrderId = (orderId) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/items.json?orderBy="order_id"&equalTo="${orderId}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data) {
+        console.error('No items found for the given order ID');
+        resolve([]);
+        return;
+      }
+
+      // Convert the firebase object into an array of items
+      const itemsArray = Object.keys(data || {}).map((key) => ({
+        firebaseKey: key,
+        ...data[key],
+      }));
+      resolve(itemsArray);
+    })
+    .catch((error) => {
+      console.error('Error fetching items:', error);
+      reject(error);
+    });
+});
+
 // GET ALL ITEMS
 const getAllItems = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/items.json"`, {
+  fetch(`${endpoint}/items.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -12,6 +40,19 @@ const getAllItems = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+// GET SINGLE ITEM
+const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/items/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
     .catch(reject);
 });
 
@@ -57,5 +98,5 @@ const updateItems = (payload) => new Promise((resolve, reject) => {
 });
 
 export {
-  getAllItems, createItem, deleteItem, updateItems
+  getAllItems, createItem, deleteItem, updateItems, getSingleItem, getItemsByOrderId
 };
