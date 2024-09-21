@@ -27,4 +27,4 @@ const viewOrder = (item) => {
   renderToDOM('#store', domString);
 };
 
-export { viewOrder, getOrderDetails };
+export { viewOrder, getOrderDetails };// test
