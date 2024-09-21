@@ -31,7 +31,10 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => resolve(data))
-    .catch(reject);
+    .catch((error) => {
+      console.error('Error fetching order:', error);
+      reject(error);
+    });
 });
 
 // CREATE Orders

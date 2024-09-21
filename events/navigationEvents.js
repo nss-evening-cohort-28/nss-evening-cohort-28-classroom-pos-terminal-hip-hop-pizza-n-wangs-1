@@ -3,10 +3,15 @@ import {
 } from '../api/orderData';
 import showOrders from '../pages/showOrders';
 import newOrderForm from '../forms/newOrderForm';
+import welcomeScreen from '../pages/homePage';
 
-const navigationEvents = () => {
+const navigationEvents = (user) => {
   document.querySelector('#view-orders').addEventListener('click', () => {
     getOrders().then((Orders) => showOrders(Orders));
+  });
+
+  document.querySelector('#navbar-logo').addEventListener('click', () => {
+    welcomeScreen(user.displayName);
   });
 
   document.querySelector('#create-orders').addEventListener('click', () => {
@@ -36,10 +41,6 @@ const navigationEvents = () => {
   // IN-PERSON ORDERS
   document.querySelector('#inPersonOrders').addEventListener('click', () => {
     inPersonOrders().then(showOrders);
-  });
-
-  document.querySelector('#navbar-logo').addEventListener('click', () => {
-    getOrders().then((orders) => showOrders(orders));
   });
 };
 
