@@ -13,12 +13,8 @@ const showRevenue = (item) => {
   let mobileCounter = 0;
   let inPersonCounter = 0;
   let phoneCounter = 0;
-  // eslint-disable-next-line prefer-const
   let revenueCounter = 0;
-  // revenueCounter will be the total of all Order revenue. But how to add all that up?
-  // eslint-disable-next-line prefer-const
   let tipCounter = 0;
-  // tipCounter will be the total of all order tips. Again, need to figure out how to add all this up.
 
   completeOrders.forEach((element) => {
     if (element.payment_type === 'Cash') {
@@ -33,6 +29,12 @@ const showRevenue = (item) => {
     } else {
       inPersonCounter += 1;
     }
+    if (element.tip_amount) {
+      tipCounter += Number(element.tip_amount);
+    }
+    if (element.revenue_total) {
+      revenueCounter += Number(element.revenue_total);
+    }
   });
 
   const domString = `'
@@ -40,9 +42,9 @@ const showRevenue = (item) => {
   
         <h1 class="card-title">REVENUE</h1>
 
-         <h1 class="card-title">TOTAL REVENUE: ${revenueCounter}</h1>
+         <h1 class="card-title">TOTAL REVENUE: $${revenueCounter}</h1>
         
-       <h3 class="card-subtitle mb-2 text-muted">Total Tips: ${tipCounter}</h3>
+       <h3 class="card-subtitle mb-2 text-muted">Total Tips: $${tipCounter}</h3>
        <h3 class="card-subtitle mb-2 text-muted" id="phoneOrders">Total Call in Orders: ${phoneCounter} </h3>
        <h3 class="card-subtitle mb-2 text-muted" id="inPersonOrders">Total Walk in Orders: ${inPersonCounter} </h3>
        <h3 class="card-subtitle mb-2 text-muted">Payment Types: </h3>

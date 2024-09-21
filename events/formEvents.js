@@ -5,6 +5,8 @@ import showOrders from '../pages/showOrders';
 import { showItems } from '../components/orderDetails';
 import showRevenue from '../pages/revenue';
 
+let currentPrice = 0;
+
 const formEvents = () => {
   document.querySelector('#app').addEventListener('submit', (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
@@ -63,6 +65,7 @@ const formEvents = () => {
       const orderPayload = {
         payment_type: document.querySelector('#paymentType').value,
         tip_amount: document.querySelector('#tipAmount').value,
+        revenue_total: (document.querySelector('#tipAmount').value + currentPrice),
         order_status: 'Closed',
         firebaseKey,
       };
@@ -77,7 +80,10 @@ const formEvents = () => {
       const itemPayload = {
         item_name: document.querySelector('#itemName').value,
         item_price: document.querySelector('#itemPrice').value,
+
       };
+      currentPrice = document.querySelector('#itemPrice').value;
+      // Reassigns the value of currentPrice so that the close order form can use the item price value even though the #itemPrice querySelector will not be available while the Close Order form is open.
 
       updateItems(itemPayload).then(() => {
         getAllItems(`${firebase.auth().currentUser.uid}`).then(showItems);
@@ -100,4 +106,4 @@ const formEvents = () => {
   });
 };
 
-export default formEvents;// test
+export default formEvents;
