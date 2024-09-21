@@ -75,6 +75,19 @@ const updateOrders = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// Get CLOSED ORDERS
+const closedOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders.json?orderBy="order_status"&equalTo="Closed"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 // FILTER BY CASH ORDERS
 const cashOrders = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders.json?orderBy="payment_type"&equalTo="Cash"`, {
@@ -90,7 +103,7 @@ const cashOrders = () => new Promise((resolve, reject) => {
 
 // FILTER BY CREDIT ORDERS
 const creditOrders = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/orders.json?orderBy="payment_type"&equalTo="Credit`, {
+  fetch(`${endpoint}/orders.json?orderBy="payment_type"&equalTo="Credit"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -142,6 +155,6 @@ const inPersonOrders = () => new Promise((resolve, reject) => {
 
 export {
   getOrders, createOrders, deleteOrders, updateOrders, getSingleOrder, cashOrders,
-  creditOrders, mobileOrders, phoneOrders,
+  creditOrders, mobileOrders, phoneOrders, closedOrders,
   inPersonOrders
 };

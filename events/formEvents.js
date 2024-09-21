@@ -5,6 +5,7 @@ import {
   createOrders, updateOrders, getOrders,
 } from '../api/orderData';
 import { showItems } from '../pages/createEditItem';
+import showRevenue from '../pages/revenue';
 
 const formEvents = () => {
   document.querySelector('#app').addEventListener('submit', (e) => {
@@ -73,7 +74,7 @@ const formEvents = () => {
       };
 
       updateOrders(orderPayload).then(() => {
-        getOrders().then(showOrders);
+        getOrders().then(showRevenue);
       });
     }
 
