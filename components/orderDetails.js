@@ -34,6 +34,7 @@ const showItems = (items) => {
           <h5 class="card-title">${item.name}</h5>
           <p class="card-text">Price: $${item.price}</p>
 
+
           <ul class="list-group">
             <li class="list-group-item">
               <a href="#" id="editItem--${item.firebaseKey}" class="text-decoration-none">Edit</a> |
@@ -41,6 +42,9 @@ const showItems = (items) => {
             </li>
           </ul>
         </div>
+        <button id="addItem-btn--${item.firebaseKey}" class="btn btn-success" style="margin: 10px; padding: 15px 30px;">Add Item</button>
+        <button id="goToPayment-btn--${item.firebaseKey}" class="btn btn-primary" style="margin: 10px; padding: 15px 30px;">Go To Payment</button>
+
       </div>
     `;
   });

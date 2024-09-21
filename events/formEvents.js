@@ -3,6 +3,13 @@ import { createItem, updateItems, getAllItems } from '../api/itemsData';
 import showOrders from '../pages/showOrders';
 import { showItems } from '../components/orderDetails';
 
+import {
+  createOrders, updateOrders, getOrders,
+} from '../api/orderData';
+import { showItems } from '../pages/createEditItem';
+import showRevenue from '../pages/revenue';
+
+
 const formEvents = () => {
   document.querySelector('#app').addEventListener('submit', (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
@@ -54,6 +61,36 @@ const formEvents = () => {
         getOrders().then(showOrders);
       });
     }
+
+
+
+    // // CLICK EVENT FOR Close order form
+    if (e.target.id.includes('close-Order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const orderPayload = {
+        payment_type: document.querySelector('#paymentType').value,
+        tip_amount: document.querySelector('#tipAmount').value,
+        order_status: 'Closed',
+        firebaseKey,
+      };
+
+      updateOrders(orderPayload).then(() => {
+        getOrders().then(showRevenue);
+      });
+    }
+
+    // CLICK EVENT FOR ADDING AN ITEM
+    if (e.target.id.includes('submit-item')) {
+      const itemPayload = {
+        item_name: document.querySelector('#itemName').value,
+        item_price: document.querySelector('#itemPrice').value,
+      };
+
+      updateItems(itemPayload).then(() => {
+        getAllItems(`${firebase.auth().currentUser.uid}`).then(showItems);
+      });
+    }
+
 
     // CLICK EVENT FOR EDITING AN ITEM
     if (e.target.id.includes('update-item')) {

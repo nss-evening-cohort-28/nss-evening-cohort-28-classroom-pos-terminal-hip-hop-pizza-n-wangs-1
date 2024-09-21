@@ -1,12 +1,18 @@
 import firebase from 'firebase';
 import {
-  getOrders, getSingleOrder, deleteOrders
+  getOrders, getSingleOrder, deleteOrders,
+  closedOrders
 } from '../api/orderData';
 import newOrderForm from '../forms/newOrderForm';
 import { viewOrder, getOrderDetails, showItems } from '../components/orderDetails';
 import showOrders from '../pages/showOrders';
+
 import addItemForm from '../forms/createEditItemsForm';
 import { getAllItems, deleteItem, getSingleItem } from '../api/itemsData'; // Import necessary functions
+
+import closeOrderForm from '../forms/closeOrderForm';
+import showRevenue from '../pages/revenue';
+
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -20,10 +26,22 @@ const domEvents = () => {
       newOrderForm();
     }
 
+
     // View Single Order
+
+    if (e.target.id.includes('view-revenue-btn')) {
+      closedOrders().then(showRevenue);
+    }
+    // View Order
     if (e.target.id.includes('view-Order-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       getOrderDetails(firebaseKey).then(viewOrder);
+    }
+    // View Payment Page
+    if (e.target.id.includes('goToPayment-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+
+      getSingleOrder(firebaseKey).then((OrderObj) => closeOrderForm(OrderObj));
     }
 
     // Delete Order
