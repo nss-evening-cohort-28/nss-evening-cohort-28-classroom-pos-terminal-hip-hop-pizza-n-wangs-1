@@ -1,46 +1,21 @@
-<div style="text-align:center">
-<h1>Hip Hop, Pizza, and Wangs (HHP+W)</h1>
+Name of the Project: pos-terminal-jtbn
 
-<image src="https://user-images.githubusercontent.com/29741570/205346767-a182560c-64a6-4cfa-80b3-0d64cf998242.png" style="height:300px;"></image></div>
+Overview of the project: This website will allow employees of a business named "Hip Hop, Pizza, and Wangs" to create, view, edit, and delete orders, placed by phone or in-person, of customers visiting their restaurant. Once the authenticated user (the employee) logs-into their system, they will be able to view all orders placed in their system. They will then be able to create a new order for the patron. Once the order has been created, they can add, edit, and delete items from that order. When all items have been finalized, the employee can then be taken to a page that notes that payment has been provided and can then close the order. Lastly, employees can view a Revenue page showing a list of orders filtered by different criteria (date range, order type, payment type, and tip amount).
 
-## Get Started
-**READ ALL INSTRUCTIONS BEFORE BEGINNING THIS PROJECT.** Take notes as you read.
+Link to ERD: https://dbdiagram.io/d/HHPW-JTBN-66e0ec92550cd927ead0d8a3
 
-Everything that needs to be done before coding starts.
+Link to your wireframes/prototype: https://www.figma.com/design/4y3EZddALuBR3ouSEM57Np/MVP?node-id=3-7251&node-type=frame&t=cGfJ8lOM5Ab2RUUX-0
 
-* **ERD** - Create an ERD to show the relationships between all of  your data
-* **Postman Collection** - Create a postman collection to store and test out all of your API calls.
-* **[Wireframes](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?node-id=0%3A1)** - This is the basic MVP wireframe. You can choose to style how you wish.
-* **Flowchart** - Plan out the flow of your data through the application
-* **Github Issue Tickets** - Using the Project Instructions as a guide, create issue tickets for this project’s work.
-* **Github Milestones** - Separate those issue tickets into Milestones to plan out the work.
+Link/screenshot of data flowchart: https://www.canva.com/design/DAGQaXCjo5M/T6_LpiwAON5EouTLauMiCw/edit?utm_content=DAGQaXCjo5M&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-## Definition of Done
+Link to the deployed project (will learn later):
 
-Do not submit this project until all of the following are complete:
+Link to your project board (yes...even though it is a part of the repo): https://github.com/orgs/nss-evening-cohort-28/projects/11/views/1
 
-1. All items are completed in getting started
-1. MVP, defined by the Acceptance Criteria, has been completed
-1. The title of your application is visible in the browser tab
-1. The project has been deployed
-1. Loom video has been created
-1. `README.md` has been updated
+Description of the user and the problem you are solving for them: The users of our application will be the employees of "Hip Hop, Pizza, and Wangs." The problem that they're experiencing is that they currently have to way of electronically tracking any data associated with their customers' orders (names, phone numbers, e-mail addresses, order history, order payment totals, order payment type totals, order type totals, tip totals).
 
-## Requirements
+Screenshots of your project:
 
-Things to remember while coding out the project
+List of contributors and links to their GH profiles: Josh Gochey (https://github.com/Jgochey), Tion Blackmon (http://github.com/gnashed), Brian Suttles (https://github.com/MJSuttles), Noah Allen (https://github.com/noahcallen)
 
-* Clean code - single responsibility principle
-* ES6 Modules bundled with webpack
-* No errors - linters should be clean
-* Bootstrap for styling
-* Completely planned out - before each section you should be making new cards on your Github project board before you code
-* Wireframes are provided for you for MVP
-* You should have an ERD
-
-### Instructions
-
-* [MVP Definition - It Gets the Job Done](./instructions/mvp.md)
-* [Stretch Goals 1 - Filtering the Data](./instructions/stretch-1.md)
-* [Stretch Goals 2 - Dealing with Change](./instructions/stretch-2.md)
-* [Stretch Goals 3 - Play that Funky Music](./instructions/stretch-3.md)
+Link to Loom video walkthrough of your app (no more than 1 minute long! Make it great):
