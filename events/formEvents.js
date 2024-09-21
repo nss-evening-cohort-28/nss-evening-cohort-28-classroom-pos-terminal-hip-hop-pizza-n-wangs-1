@@ -9,6 +9,7 @@ let currentPrice = 0;
 
 const formEvents = () => {
   document.querySelector('#app').addEventListener('submit', (e) => {
+    e.stopImmediatePropagation();
     e.preventDefault(); // Prevent the default form submission behavior
 
     // CLICK EVENT FOR SUBMITTING FORM FOR ADDING AN ORDER
@@ -19,7 +20,7 @@ const formEvents = () => {
         email: document.querySelector('#customerEmail').value,
         order_type: document.querySelector('#orderType').value,
         order_status: 'Open',
-        order_items: []
+        order_items: [],
       };
 
       createOrders(orderPayload).then(({ name }) => {
@@ -31,12 +32,17 @@ const formEvents = () => {
     }
 
     // CLICK EVENT FOR SUBMITTING FORM FOR ADDING AN ITEM
-    if (e.target.id === 'submit-item-btn') {
+    if (e.target.id.includes('submit-item-btn')) {
       const itemPayload = {
         name: document.querySelector('#itemName').value,
         price: document.querySelector('#itemPrice').value
       };
 
+      getAllItems(itemPayload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateItems(patchPayload).then(() => {
+          getAllItems().then(showItems);
+        });
       createItem(itemPayload).then(() => {
         getAllItems().then(showItems);
       });
@@ -51,14 +57,13 @@ const formEvents = () => {
         email: document.querySelector('#customerEmail').value,
         order_type: document.querySelector('#orderType').value,
         order_status: 'Open',
-        firebaseKey
+        firebaseKey,
       };
 
       updateOrders(orderPayload).then(() => {
         getOrders().then(showOrders);
       });
     }
-
     // // CLICK EVENT FOR Close order form
     if (e.target.id.includes('close-Order')) {
       const [, firebaseKey] = e.target.id.split('--');
@@ -69,12 +74,10 @@ const formEvents = () => {
         order_status: 'Closed',
         firebaseKey,
       };
-
       updateOrders(orderPayload).then(() => {
         getOrders().then(showRevenue);
       });
     }
-
     // CLICK EVENT FOR ADDING AN ITEM
     if (e.target.id.includes('submit-item')) {
       const itemPayload = {
@@ -89,21 +92,21 @@ const formEvents = () => {
         getAllItems(`${firebase.auth().currentUser.uid}`).then(showItems);
       });
     }
-
     // CLICK EVENT FOR EDITING AN ITEM
     if (e.target.id.includes('update-item')) {
       const [, firebaseKey] = e.target.id.split('--');
       const itemPayload = {
+        uid: `${firebase.auth().currentUser.uid}`,
+        firebaseKey,
         name: document.querySelector('#itemName').value,
         price: document.querySelector('#itemPrice').value,
         firebaseKey
       };
 
       updateItems(itemPayload).then(() => {
-        getAllItems().then(showItems);
+        getAllItems(`${firebase.auth().currentUser.uid}`).then(showItems);
       });
     }
   });
 };
-
 export default formEvents;
