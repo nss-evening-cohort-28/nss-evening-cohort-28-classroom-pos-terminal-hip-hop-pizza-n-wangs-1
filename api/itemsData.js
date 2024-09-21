@@ -3,7 +3,7 @@ import client from '../utils/client';
 const endpoint = client.databaseURL;
 
 const getItemsByOrderId = (orderId) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/items.json?orderBy="order_id"&equalTo="${orderId}"`, {
+  fetch(`${endpoint}/items.json?orderBy=order_id&equalTo=${orderId}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -17,8 +17,8 @@ const getItemsByOrderId = (orderId) => new Promise((resolve, reject) => {
         return;
       }
 
-      // Convert the firebase object into an array of items
-      const itemsArray = Object.keys(data || {}).map((key) => ({
+      // Convert the Firebase object into an array of items
+      const itemsArray = Object.keys(data).map((key) => ({
         firebaseKey: key,
         ...data[key],
       }));

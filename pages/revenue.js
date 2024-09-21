@@ -36,21 +36,27 @@ const showRevenue = (item) => {
   });
 
   const domString = `'
+          
+  <div class="card bg-dark text-white p-4" style="width: 100%;">
+    <div class="card-body text-center">
+      <h2 class="card-title">REVENUE</h2>
+      <h3 class="card-title">Total Revenue: ${revenueCounter}</h3>
 
-  
-        <h1 class="card-title">REVENUE</h1>
+      <hr class="bg-white my-3">
 
-         <h1 class="card-title">TOTAL REVENUE: ${revenueCounter}</h1>
-        
-       <h3 class="card-subtitle mb-2 text-muted">Total Tips: ${tipCounter}</h3>
-       <h3 class="card-subtitle mb-2 text-muted" id="phoneOrders">Total Call in Orders: ${phoneCounter} </h3>
-       <h3 class="card-subtitle mb-2 text-muted" id="inPersonOrders">Total Walk in Orders: ${inPersonCounter} </h3>
-       <h3 class="card-subtitle mb-2 text-muted">Payment Types: </h3>
-       <h3 class="card-subtitle mb-2 text-muted" id="cashOrders">Cash: ${cashCounter} </h3>
-       <h3 class="card-subtitle mb-2 text-muted" id="creditOrders">Credit: ${creditCounter} </h3>
-       <h3 class="card-subtitle mb-2 text-muted" id="mobileOrders">Mobile: ${mobileCounter} </h3>
-      </div>
-    </div>`;
+      <h5 class="card-subtitle mb-2">Total Tips: ${tipCounter}</h5>
+      <h5 class="card-subtitle mb-2" id="phoneOrders">Total Call-in Orders: ${phoneCounter}</h5>
+      <h5 class="card-subtitle mb-2" id="inPersonOrders">Total Walk-in Orders: ${inPersonCounter}</h5>
+
+      <hr class="bg-white my-3">
+
+      <h4 class="card-subtitle mb-3">Payment Types</h4>
+      <h5 class="card-subtitle mb-2" id="cashOrders">Cash: ${cashCounter}</h5>
+      <h5 class="card-subtitle mb-2" id="creditOrders">Credit: ${creditCounter}</h5>
+      <h5 class="card-subtitle mb-2" id="mobileOrders">Mobile: ${mobileCounter}</h5>
+    </div>
+  </div>
+`;
 
   renderToDom('#store', domString);
 };

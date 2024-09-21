@@ -12,7 +12,7 @@ const newOrderForm = (obj = {}) => {
 
       <div class="form-group">
         <label for="customerPhone">Customer Phone</label>
-        <input type="text" class="form-control" id="customerPhone" aria-describedby="customerPhone" value="${obj.phone_number || ''}" required>
+        <input type="text" class="form-control-lg" id="customerPhone" aria-describedby="customerPhone" value="${obj.phone_number || ''}" required>
       </div>
 
       <div class="form-group">
