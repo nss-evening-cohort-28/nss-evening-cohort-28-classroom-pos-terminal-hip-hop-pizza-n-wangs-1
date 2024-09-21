@@ -2,14 +2,11 @@ import firebase from 'firebase';
 import { createOrders, updateOrders, getOrders } from '../api/orderData';
 import { createItem, updateItems, getAllItems } from '../api/itemsData';
 import showOrders from '../pages/showOrders';
+import { showItems } from '../components/orderDetails';
 import showRevenue from '../pages/revenue';
-import { showItems } from '../pages/createEditItem';
-
-let currentPrice = 0;
 
 const formEvents = () => {
   document.querySelector('#app').addEventListener('submit', (e) => {
-    e.stopImmediatePropagation();
     e.preventDefault(); // Prevent the default form submission behavior
 
     // CLICK EVENT FOR SUBMITTING FORM FOR ADDING AN ORDER
@@ -36,14 +33,10 @@ const formEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
       const itemPayload = {
         name: document.querySelector('#itemName').value,
-        price: document.querySelector('#itemPrice').value
+        price: document.querySelector('#itemPrice').value,
+        firebaseKey,
       };
 
-      getAllItems(itemPayload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
-        updateItems(patchPayload).then(() => {
-          getAllItems().then(showItems);
-        });
       createItem(itemPayload).then(() => {
         getAllItems().then(showItems);
       });
@@ -65,40 +58,38 @@ const formEvents = () => {
         getOrders().then(showOrders);
       });
     }
+
     // // CLICK EVENT FOR Close order form
     if (e.target.id.includes('close-Order')) {
       const [, firebaseKey] = e.target.id.split('--');
       const orderPayload = {
         payment_type: document.querySelector('#paymentType').value,
         tip_amount: document.querySelector('#tipAmount').value,
-        revenue_total: (document.querySelector('#tipAmount').value + currentPrice),
         order_status: 'Closed',
         firebaseKey,
       };
+
       updateOrders(orderPayload).then(() => {
         getOrders().then(showRevenue);
       });
     }
+
     // CLICK EVENT FOR ADDING AN ITEM
     if (e.target.id.includes('submit-item')) {
       const itemPayload = {
         item_name: document.querySelector('#itemName').value,
         item_price: document.querySelector('#itemPrice').value,
-
       };
-      currentPrice = document.querySelector('#itemPrice').value;
-      // Reassigns the value of currentPrice so that the close order form can use the item price value even though the #itemPrice querySelector will not be available while the Close Order form is open.
 
       updateItems(itemPayload).then(() => {
         getAllItems(`${firebase.auth().currentUser.uid}`).then(showItems);
       });
     }
+
     // CLICK EVENT FOR EDITING AN ITEM
     if (e.target.id.includes('update-item')) {
       const [, firebaseKey] = e.target.id.split('--');
       const itemPayload = {
-        uid: `${firebase.auth().currentUser.uid}`,
-        firebaseKey,
         name: document.querySelector('#itemName').value,
         price: document.querySelector('#itemPrice').value,
         firebaseKey
@@ -111,4 +102,4 @@ const formEvents = () => {
   });
 };
 
-export default formEvents;
+export default formEvents;// test
