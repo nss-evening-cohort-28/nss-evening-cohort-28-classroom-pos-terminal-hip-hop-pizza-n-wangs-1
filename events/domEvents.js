@@ -5,6 +5,7 @@ import {
 import newOrderForm from '../forms/newOrderForm';
 import { viewOrder, getOrderDetails } from '../components/orderDetails';
 import showOrders from '../pages/showOrders';
+import closeOrderForm from '../forms/closeOrderForm';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -20,6 +21,12 @@ const domEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
 
       getOrderDetails(firebaseKey).then(viewOrder);
+    }
+    // View Payment Page
+    if (e.target.id.includes('goToPayment-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+
+      getSingleOrder(firebaseKey).then((OrderObj) => closeOrderForm(OrderObj));
     }
 
     // Delete Order

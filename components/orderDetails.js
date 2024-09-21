@@ -19,8 +19,8 @@ const viewOrder = (item) => {
         <h1 class="card-subtitle mb-2 text-muted">Order items go here </h1>
  
 
-        <button id="addItem" class="btn btn-success" style="margin: 10px; padding: 15px 30px;">Add Item</button>
-        <button id="goToPayment" class="btn btn-primary" style="margin: 10px; padding: 15px 30px;">Go To Payment</button>
+        <button id="addItem-btn--${item.firebaseKey}" class="btn btn-success" style="margin: 10px; padding: 15px 30px;">Add Item</button>
+        <button id="goToPayment-btn--${item.firebaseKey}" class="btn btn-primary" style="margin: 10px; padding: 15px 30px;">Go To Payment</button>
       </div>
     </div>`;
 

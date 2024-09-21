@@ -77,7 +77,7 @@ const updateOrders = (payload) => new Promise((resolve, reject) => {
 
 // FILTER BY CASH ORDERS
 const cashOrders = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/orders.json?orderBy="order_type"&equalTo="cash"`, {
+  fetch(`${endpoint}/orders.json?orderBy="payment_type"&equalTo="Cash"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const cashOrders = () => new Promise((resolve, reject) => {
 
 // FILTER BY CREDIT ORDERS
 const creditOrders = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/orders.json?orderBy="order_type"&equalTo="credit`, {
+  fetch(`${endpoint}/orders.json?orderBy="payment_type"&equalTo="Credit`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ const creditOrders = () => new Promise((resolve, reject) => {
 
 // FILTER BY MOBILE ORDERS
 const mobileOrders = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/orders.json?orderBy="order_type"&equalTo="mobile"`, {
+  fetch(`${endpoint}/orders.json?orderBy="payment_type"&equalTo="Mobile"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ const phoneOrders = () => new Promise((resolve, reject) => {
 
 // FILTER BY IN-PERSON ORDERS
 const inPersonOrders = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/orders.json?orderBy="order_type"&equalTo="In-Person"`, {
+  fetch(`${endpoint}/orders.json?orderBy="order_type"&equalTo="inPerson"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
