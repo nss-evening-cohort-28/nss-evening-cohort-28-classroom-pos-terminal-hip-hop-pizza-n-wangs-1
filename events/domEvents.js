@@ -1,11 +1,13 @@
 import firebase from 'firebase';
 import {
-  getOrders, getSingleOrder, deleteOrders
+  getOrders, getSingleOrder, deleteOrders,
+  closedOrders
 } from '../api/orderData';
 import newOrderForm from '../forms/newOrderForm';
 import { viewOrder, getOrderDetails } from '../components/orderDetails';
 import showOrders from '../pages/showOrders';
 import closeOrderForm from '../forms/closeOrderForm';
+import showRevenue from '../pages/revenue';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -15,6 +17,9 @@ const domEvents = () => {
     }
     if (e.target.id.includes('create-orders-btn')) {
       newOrderForm();
+    }
+    if (e.target.id.includes('view-revenue-btn')) {
+      closedOrders().then(showRevenue);
     }
     // View Order
     if (e.target.id.includes('view-Order-btn')) {
