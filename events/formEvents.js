@@ -20,7 +20,7 @@ const formEvents = () => {
         email: document.querySelector('#customerEmail').value,
         order_type: document.querySelector('#orderType').value,
         order_status: 'Open',
-        order_items: [],
+        order_items: []
       };
 
       createOrders(orderPayload).then(({ name }) => {
@@ -32,7 +32,8 @@ const formEvents = () => {
     }
 
     // CLICK EVENT FOR SUBMITTING FORM FOR ADDING AN ITEM
-    if (e.target.id.includes('submit-item-btn')) {
+    if (e.target.id === 'submit-item-btn') {
+      const [, firebaseKey] = e.target.id.split('--');
       const itemPayload = {
         name: document.querySelector('#itemName').value,
         price: document.querySelector('#itemPrice').value
@@ -57,7 +58,7 @@ const formEvents = () => {
         email: document.querySelector('#customerEmail').value,
         order_type: document.querySelector('#orderType').value,
         order_status: 'Open',
-        firebaseKey,
+        firebaseKey
       };
 
       updateOrders(orderPayload).then(() => {
@@ -104,9 +105,10 @@ const formEvents = () => {
       };
 
       updateItems(itemPayload).then(() => {
-        getAllItems(`${firebase.auth().currentUser.uid}`).then(showItems);
+        getAllItems().then(showItems);
       });
     }
   });
 };
+
 export default formEvents;

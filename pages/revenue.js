@@ -36,7 +36,11 @@ const showRevenue = (item) => {
   });
 
   const domString = `'
-
+          
+  <div class="card bg-dark text-white p-4" style="width: 100%;">
+    <div class="card-body text-center">
+      <h2 class="card-title">REVENUE</h2>
+      <h3 class="card-title">Total Revenue: ${revenueCounter}</h3>
   
         <h1 class="card-title">REVENUE</h1>
 
