@@ -14,7 +14,9 @@ const getItemsByOrderId = (orderId) => new Promise((resolve, reject) => {
       if (!data) {
         console.error('No items found for the given order ID');
         resolve([]);
-        return;
+        // return;
+      } else {
+        resolve(data);
       }
 
       // Convert the firebase object into an array of items

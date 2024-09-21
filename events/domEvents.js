@@ -3,8 +3,9 @@ import {
   getOrders, getSingleOrder, deleteOrders,
   closedOrders
 } from '../api/orderData';
+import getOrderDetails from '../api/mergeData';
 import newOrderForm from '../forms/newOrderForm';
-import { viewOrder, getOrderDetails, showItems } from '../components/orderDetails';
+import { viewOrder, showItems } from '../components/orderDetails';
 import showOrders from '../pages/showOrders';
 
 import addItemForm from '../forms/createEditItemsForm';
