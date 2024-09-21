@@ -30,9 +30,11 @@ const formEvents = () => {
 
     // CLICK EVENT FOR SUBMITTING FORM FOR ADDING AN ITEM
     if (e.target.id === 'submit-item-btn') {
+      const [, firebaseKey] = e.target.id.split('--');
       const itemPayload = {
         name: document.querySelector('#itemName').value,
-        price: document.querySelector('#itemPrice').value
+        price: document.querySelector('#itemPrice').value,
+        firebaseKey,
       };
 
       createItem(itemPayload).then(() => {
