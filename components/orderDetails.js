@@ -81,6 +81,7 @@ const showItems = (items) => {
   });
 };
 
+export { viewOrder, getOrderDetails };// test
 // get order details
 const getOrderDetails = async (firebaseKey) => {
   const orderObject = await getSingleOrder(firebaseKey);
