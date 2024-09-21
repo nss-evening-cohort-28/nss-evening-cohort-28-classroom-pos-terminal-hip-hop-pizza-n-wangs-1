@@ -6,7 +6,10 @@ import addItemForm from '../forms/createEditItemsForm'; // Import the form for c
 
 // Function to display "No Items Available" message
 const emptyItems = () => {
-  const domString = '<h1>No Items Available</h1>';
+  const domString = `
+  <h1>No Items Available</h1>
+  <button id="addItem">Add Item</button>
+  `;
   renderToDOM('#store', domString);
 };
 
