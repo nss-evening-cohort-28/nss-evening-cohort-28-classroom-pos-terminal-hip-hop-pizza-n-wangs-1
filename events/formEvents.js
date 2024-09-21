@@ -62,6 +62,21 @@ const formEvents = () => {
       });
     }
 
+    // // CLICK EVENT FOR Close order form
+    if (e.target.id.includes('close-Order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const orderPayload = {
+        payment_type: document.querySelector('#paymentType').value,
+        tip_amount: document.querySelector('#tipAmount').value,
+        order_status: 'Closed',
+        firebaseKey,
+      };
+
+      updateOrders(orderPayload).then(() => {
+        getOrders().then(showOrders);
+      });
+    }
+
     // CLICK EVENT FOR ADDING AN ITEM
     if (e.target.id.includes('submit-item')) {
       const itemPayload = {
