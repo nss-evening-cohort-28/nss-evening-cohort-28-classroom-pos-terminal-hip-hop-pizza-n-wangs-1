@@ -1,14 +1,9 @@
+import firebase from 'firebase';
 import { createOrders, updateOrders, getOrders } from '../api/orderData';
 import { createItem, updateItems, getAllItems } from '../api/itemsData';
 import showOrders from '../pages/showOrders';
 import { showItems } from '../components/orderDetails';
-
-import {
-  createOrders, updateOrders, getOrders,
-} from '../api/orderData';
-import { showItems } from '../pages/createEditItem';
 import showRevenue from '../pages/revenue';
-
 
 const formEvents = () => {
   document.querySelector('#app').addEventListener('submit', (e) => {
@@ -62,8 +57,6 @@ const formEvents = () => {
       });
     }
 
-
-
     // // CLICK EVENT FOR Close order form
     if (e.target.id.includes('close-Order')) {
       const [, firebaseKey] = e.target.id.split('--');
@@ -90,7 +83,6 @@ const formEvents = () => {
         getAllItems(`${firebase.auth().currentUser.uid}`).then(showItems);
       });
     }
-
 
     // CLICK EVENT FOR EDITING AN ITEM
     if (e.target.id.includes('update-item')) {

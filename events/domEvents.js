@@ -13,7 +13,6 @@ import { getAllItems, deleteItem, getSingleItem } from '../api/itemsData'; // Im
 import closeOrderForm from '../forms/closeOrderForm';
 import showRevenue from '../pages/revenue';
 
-
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     // View Orders Button
@@ -25,7 +24,6 @@ const domEvents = () => {
     if (e.target.id.includes('create-orders-btn')) {
       newOrderForm();
     }
-
 
     // View Single Order
 
